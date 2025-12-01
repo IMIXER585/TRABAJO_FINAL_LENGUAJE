@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h4>{% if proveedor %}Editar{% else %}Nuevo{% endif %} Proveedor</h4>
+<form method="post">
+  {{ form.hidden_tag() }}
+  <div class="mb-2">{{ form.nombre.label }} {{ form.nombre(class="form-control") }}</div>
+  <div class="mb-2">{{ form.contacto.label }} {{ form.contacto(class="form-control") }}</div>
+  <div class="mb-2">{{ form.telefono.label }} {{ form.telefono(class="form-control") }}</div>
+  <div class="mb-2">{{ form.email.label }} {{ form.email(class="form-control") }}</div>
+  <div>{{ form.submit(class="btn btn-success") }}</div>
+</form>
+{% endblock %}

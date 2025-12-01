@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}Usuarios{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between mb-3">
+  <h3>Usuarios</h3>
+
+  {% if current_user.role.name == 'Super-Administrador' %}
+    <a class="btn btn-primary" href="{{ url_for('main.register') }}">
+      Crear usuario
+    </a>
+  {% endif %}
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Usuario</th>
+      <th>Email</th>
+      <th>Rol</th>
+      <th style="width: 180px;">Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for u in users %}
+    <tr>
+      <td>{{ u.username }}</td>
+      <td>{{ u.email }}</td>
+      <td>{{ u.role.name if u.role else '-' }}</td>
+
+      <td>
+        {% if current_user.role.name == 'Super-Administrador' %}
+          
+          <!-- Botón Editar -->
+          <a 
+            class="btn btn-sm btn-outline-secondary"
+            href="{{ url_for('main.user_edit', id=u.id) }}">
+            Editar
+          </a>
+
+          <!-- Botón Eliminar -->
+          <form 
+            method="post" 
+            action="{{ url_for('main.user_delete', id=u.id) }}"
+            style="display:inline;"
+            onsubmit="return confirm('¿Seguro que deseas eliminar este usuario?');">
+
+            <button class="btn btn-sm btn-danger">
+              Eliminar
+            </button>
+          </form>
+
+        {% else %}
+          <span class="text-muted small">Sin permisos</span>
+        {% endif %}
+      </td>
+
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

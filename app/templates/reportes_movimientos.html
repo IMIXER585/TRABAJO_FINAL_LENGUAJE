@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h4>Reporte de Movimientos</h4>
+<table class="table">
+  <thead><tr><th>Fecha</th><th>Producto</th><th>Tipo</th><th>Cantidad</th><th>Usuario</th><th>Nota</th></tr></thead>
+  <tbody>
+    {% for m in movimientos %}
+    <tr>
+      <td>{{ m.fecha.strftime('%Y-%m-%d %H:%M') }}</td>
+      <td>{{ m.producto.nombre }}</td>
+      <td>{{ m.tipo }}</td>
+      <td>{{ m.cantidad }}</td>
+      <td>{{ m.usuario.username if m.usuario else 'Sistema' }}</td>
+      <td>{{ m.nota }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

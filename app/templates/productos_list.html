@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex justify-content-between mb-2">
+  <h3>Productos</h3>
+  {% if current_user.role.name in ['Super-Administrador','Almacenista'] %}
+  <a class="btn btn-primary" href="{{ url_for('main.producto_nuevo') }}">Nuevo Producto</a>
+  {% endif %}
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>SKU</th><th>Nombre</th><th>Cant.</th><th>Stock mínimo</th><th>Proveedor</th><th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for p in productos %}
+    <tr>
+      <td>{{ p.sku }}</td>
+      <td>{{ p.nombre }}<div class="small text-muted">{{ p.descripcion }}</div></td>
+      <td>{{ p.cantidad }}</td>
+      <td>{{ p.stock_minimo }}</td>
+      <td>{{ p.proveedor.nombre if p.proveedor else '-' }}</td>
+      <td>
+        {% if current_user.role.name in ['Super-Administrador','Almacenista'] %}
+          <a class="btn btn-sm btn-outline-secondary" href="{{ url_for('main.producto_editar', id=p.id) }}">Editar</a>
+        {% endif %}
+        {% if current_user.role.name == 'Super-Administrador' %}
+          <form action="{{ url_for('main.producto_eliminar', id=p.id) }}" method="post" style="display:inline">
+            <button class="btn btn-sm btn-danger" onclick="return confirm('Eliminar?')">Eliminar</button>
+          </form>
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

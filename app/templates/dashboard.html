@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+  <div class="col-md-8">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5>Resumen</h5>
+        <p>Total de productos: <strong>{{ total_products }}</strong></p>
+        <p>Valor total inventario (precio_compra * cantidad): <strong>{{ "{:.2f}".format(total_value) }}</strong></p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h5>Productos con menos stock</h5>
+        <ul class="list-group">
+          {% for p in low_stock %}
+          <li class="list-group-item d-flex justify-content-between">
+            <div>
+              <strong>{{ p.nombre }}</strong> <small> (SKU: {{ p.sku }}) </small>
+              <div class="small text-muted">{{ p.descripcion }}</div>
+            </div>
+            <span class="badge bg-danger align-self-center">{{ p.cantidad }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
