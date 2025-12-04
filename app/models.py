@@ -51,7 +51,13 @@ class Product(db.Model):
     precio_venta = db.Column(db.Float, default=0.0)
     proveedor_id = db.Column(db.Integer, db.ForeignKey('proveedores.id'))
 
-    movimientos = db.relationship('InventoryMovement', backref='producto', lazy=True)
+    movimientos = db.relationship(
+    'InventoryMovement',
+    backref='producto',
+    lazy=True,
+    cascade="all, delete-orphan"
+)
+
 
 class InventoryMovement(db.Model):
     __tablename__ = 'movimientos_inventario'
