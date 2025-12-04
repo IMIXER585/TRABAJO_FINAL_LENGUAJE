@@ -1,0 +1,190 @@
+/* NAVBAR ESTILIZADO */
+.navbar {
+    background: rgba(0,0,0,0.55) !important;
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    transition: background 0.3s ease;
+}
+
+.navbar:hover {
+    background: rgba(0,0,0,0.75) !important;
+}
+
+/* Marca del sistema */
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform .2s ease;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.05);
+}
+
+/* Enlaces */
+.nav-link {
+    position: relative;
+    margin-right: 10px;
+    font-size: 0.95rem;
+    transition: color .2s ease;
+}
+
+.nav-link:hover {
+    color: #00eaff !important;
+}
+
+/* Subrayado animado debajo de cada enlace */
+.nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 3px;
+    left: 0;
+    background-color: #00eaff;
+    transition: width .25s ease-in-out;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Dropdown */
+.dropdown-menu {
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.12);
+}
+
+.dropdown-item {
+    color: #fff;
+    transition: background .2s ease, padding-left .2s ease;
+}
+
+.dropdown-item:hover {
+    background: rgba(0,255,255,0.15);
+    padding-left: 18px;
+}
+
+/* Usuario y rol */
+.navbar-nav .nav-link span {
+    font-weight: 500;
+}
+
+/* Botón hamburguesa más visible */
+.navbar-toggler {
+    border-color: rgba(255,255,255,0.3);
+}
+
+.navbar-toggler-icon {
+    filter: brightness(0) invert(1);
+}
+
+.container {
+    margin-top: 70px;
+}
+
+.glass-box {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    padding: 25px 35px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    width: 100%;
+    max-width: 600px;
+    margin: auto; /* lo centra */
+}
+
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("{{ url_for('static', filename='img.jpg') }}");
+    background-size: cover;        /* Hace que cubra toda la pantalla */
+    background-position: center;   /* Centra la imagen */
+    background-repeat: no-repeat;  /* Evita que se repita */
+    background-attachment: fixed;  /* Fija el fondo */
+}
+
+/* Fondo general */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("../img.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Cards glass */
+.card {
+    background: rgba(255, 255, 255, 0.10) !important;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+    border-radius: 14px !important;
+}
+
+/* SIN movimientos en hover */
+.card:hover {
+    background: rgba(255, 255, 255, 0.13) !important;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.28);
+}
+
+/* Títulos */
+.card-body h5 {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Textos */
+.card-body p,
+.card-body div,
+.small.text-muted {
+    color: #E8D9FF !important;
+}
+
+/* Lista */
+.list-group-item {
+    background: rgba(255,255,255,0.08) !important;
+    border: 1px solid rgba(255,255,255,0.12);
+    color: #fff;
+    backdrop-filter: blur(6px);
+    transition: background 0.15s ease;
+}
+
+/* SIN movimientos */
+.list-group-item:hover {
+    background: rgba(255,255,255,0.16) !important;
+}
+
+/* Nombres */
+.list-group-item strong {
+    font-size: 1.05rem;
+    color: #FFFFFF;
+}
+
+/* Badge */
+.badge.bg-danger {
+    background: #FF6A4D !important;
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    border-radius: 12px;
+}
+
+/* Separación */
+.row {
+    margin-top: 25px;
+}

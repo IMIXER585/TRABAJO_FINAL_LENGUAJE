@@ -1,6 +1,23 @@
 {% extends "base.html" %}
 {% block title %}Nuevo movimiento{% endblock %}
 {% block content %}
+<style>
+  
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("{{ url_for('static', filename='img.jpg') }}");
+    background-size: cover;        /* Hace que cubra toda la pantalla */
+    background-position: center;   /* Centra la imagen */
+    background-repeat: no-repeat;  /* Evita que se repita */
+    background-attachment: fixed;  /* Fija el fondo */
+}
+
+</style>
 <div class="row justify-content-center">
   <div class="col-md-8">
     <div class="card">

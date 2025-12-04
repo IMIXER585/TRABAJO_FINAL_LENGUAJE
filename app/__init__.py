@@ -7,7 +7,7 @@ login_manager = LoginManager()
 
 def create_app():
     app = Flask(__name__)
-    app.config['SECRET_KEY'] = 'cámbialo_a_una_clave_segura_en_producción'
+    app.config['SECRET_KEY'] = 'Ivy Lopez'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///inventario.db'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
